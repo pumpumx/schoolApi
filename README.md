@@ -1,4 +1,4 @@
-🏫 School API
+<h2>🏫 School API</h1>
 
 A TypeScript-based REST API for managing school data and user authentication, featuring geospatial queries, JWT-based authentication, and modular error handling. Built with Express.js and MongoDB (Mongoose).
 
@@ -35,32 +35,21 @@ cd schoolApi
 2. Install Dependencies
 
 npm install
+
 3. Configure Environment Variables
 
 Create a .env file in the root directory:
 
-ACCESS_TOKEN_KEY=""
+See the sample .env.sample file
 
-ACCESS_TOKEN_EXPIRY=""
-
-REFRESH_TOKEN_KEY=""
-
-REFRESH_TOKEN_EXPIRY=""
-
-MONGODB_URL=""
-
-APP_PORT=""
-
-PROD=""
 4. Run the Server
-
-
+5. 
 npm run dev
 
 📘 API Endpoints
 🔐 Auth Routes
+	
 
-Method	Endpoint	
 POST	/api/v1/users/register-user
 
 Register a new user
