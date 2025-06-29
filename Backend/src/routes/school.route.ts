@@ -1,6 +1,6 @@
 import { Router } from "express";
-import verifyJWT from "../middlewares/verifyJwt";
-import { getSchoolData, insertSchoolData } from "../controllers/school.controller";
+import verifyJWT from "../middlewares/verifyJwt.ts";
+import { getSchoolData, insertSchoolData } from "../controllers/school.controller.ts";
 
 
 const schoolRouter = Router()

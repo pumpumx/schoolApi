@@ -1,9 +1,9 @@
 import type { Request, Response } from "express";
-import { ApiError } from "../utils/ApiError";
-import { ApiResponse } from "../utils/ApiResponse";
-import { AsyncHandler } from "../utils/AsyncHandler";
-import { type schoolInput } from "../types/school.type";
-import School from "../models/school.model";
+import { ApiError } from "../utils/ApiError.ts";
+import { ApiResponse } from "../utils/ApiResponse.ts";
+import { AsyncHandler } from "../utils/AsyncHandler.ts";
+import { type schoolInput } from "../types/school.type.ts";
+import School from "../models/school.model.ts";
 
 
 interface customRequest extends Request {
@@ -12,23 +12,24 @@ interface customRequest extends Request {
 
 
 const insertSchoolData = AsyncHandler(async (req: customRequest, res: Response) => {
-    const { schoolName, address, longitude, latitude }: schoolInput = req.body
+    const { schoolName, address , longitude , latitude }: schoolInput = req.body
     const user = req.user;
-
+    console.log(req.body)
     if (!user) throw new ApiError(500, false, "Invalid User");
 
-    if ([schoolName, address, longitude, latitude].some((val) => val.toString().trim() === '')) {
+    if ([schoolName, address , longitude , latitude].some((val) => val.toString().trim() === '')) {
         throw new ApiError(500, false, "All fields are required");
     }
 
-    const coordinates = [longitude, latitude]
+    const location = {
+        type:"Point",
+        coordinates:[longitude,latitude]
+    }
 
     const SchoolData = new School({
         schoolName,
         address,
-        location: {
-            coordinates: coordinates
-        }
+        location
     })
 
     SchoolData.save()
@@ -48,7 +49,9 @@ const getSchoolData = AsyncHandler(async(req:customRequest , res:Response)=>{
     const {longitude,latitude} = req.body
 
     if(!longitude || !latitude) throw new ApiError(500 , false ,"Location not provided");
+
     const userCoordinates = [longitude , latitude]
+
     const schoolDetails = await School.find({
         location:{
             $near:{
@@ -56,6 +59,7 @@ const getSchoolData = AsyncHandler(async(req:customRequest , res:Response)=>{
                     type:'Point',
                     coordinates:userCoordinates,
                 },
+                distanceField:"distance",
                 $maxDistance: 50000,
             }
         }

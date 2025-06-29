@@ -29,12 +29,12 @@ const loginUser = AsyncHandler(async (req:Request, res:Response) => {
 
     const user = await User.findOne({  
         $or: [{ username: validateUsernameOrEmail}, {email: validateUsernameOrEmail }]
-    })
+    }).select("_id username email password")
 
     if (!user) throw new ApiError(400, false, "No such user exists")
 
     const storedPassHash: string = user.password
-    const isPassCorrect:Promise<boolean> =  bcrypt.compare(validatePassword, storedPassHash)
+    const isPassCorrect:Promise<Boolean> = bcrypt.compare(validatePassword, storedPassHash)
 
     if (!isPassCorrect) throw new ApiError(500, false, "Incorrect password")
 
@@ -53,9 +53,9 @@ const loginUser = AsyncHandler(async (req:Request, res:Response) => {
 })
 
 const registerUser = AsyncHandler(async(req:Request , res:Response)=>{
-    const {username,password,age,role,email,fullName}:registerUserType= req.body
+    const {username,password,email}:registerUserType= req.body
 
-    if([username,password,email,fullName].some((val)=>!val?.trim())){
+    if([username,password,email,].some((val)=>!val.toString()?.trim())){
         throw new ApiError(400,false,"All fields are required")
     }
 
@@ -63,8 +63,8 @@ const registerUser = AsyncHandler(async(req:Request , res:Response)=>{
     
     if(!isEmail(email)) throw new ApiError(400,false,"Invalid email format")
     
-    const isAlphaRegex = /^[A-Za-z]+$/
-    if(!isAlphaRegex.test(fullName)) throw new ApiError(400,false,"Invalid full name format")
+    const isAlphaRegex = /^[A-Za-z]+$/  
+    if(!isAlphaRegex.test(username)) throw new ApiError(400,false,"Invalid full name format")
 
     //Validating if user already exists or not!!
      const user = await User.findOne({  
@@ -75,9 +75,6 @@ const registerUser = AsyncHandler(async(req:Request , res:Response)=>{
 
     const newUser = new User({
         username,
-        fullname:fullName,
-        age,
-        role,
         password,
         email,
     })

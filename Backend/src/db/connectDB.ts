@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import School from "../models/school.model.ts";
 export const databaseConnection = async () => {
     try {
         const mongoUri:(string | undefined) = process.env.MONGODB_URL
