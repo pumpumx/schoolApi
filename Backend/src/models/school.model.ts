@@ -6,7 +6,7 @@ interface School extends Document {
   address: string;
   location: {
     type: 'Point';
-    coordinates: [number, number]; // [longitude, latitude]
+    coordinates: [number, number]; 
   };
 }
 
@@ -27,7 +27,7 @@ const schoolSchema = new mongoose.Schema<School>(
         required: true,
       },
       coordinates: {
-        type: [Number], // [longitude, latitude]
+        type: [Number], 
         required: true,
       },
     },
@@ -35,9 +35,7 @@ const schoolSchema = new mongoose.Schema<School>(
   { timestamps: true }
 );
 
-// Create a 2dsphere index for geospatial queries
 schoolSchema.index({ location: "2dsphere" });
 
-// Export the model
-const SchoolModel = mongoose.model<School>("School", schoolSchema);
-export default SchoolModel;
+const School = mongoose.model<School>("School", schoolSchema);
+export default School;
