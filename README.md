@@ -43,13 +43,12 @@ Create a .env file in the root directory:
 See the sample .env.sample file
 
 4. Run the Server
-5. 
+   
 npm run dev
 
 📘 API Endpoints
 🔐 Auth Routes
 	
-
 POST	/api/v1/users/register-user
 
 Register a new user
@@ -64,8 +63,6 @@ Delete logged-in user account
 
 🏫 School Routes
 
-Method	Endpoint	Description
-
 POST	/api/v1/school/addSchool	
 
 Add a new school (auth required)
@@ -77,15 +74,40 @@ Get nearby schools by coordinates (auth required)
 ⚠️ All routes (except register/login) require a valid JWT token in cookies.
 
 📌 Example Requests
+➕ Register User
+curl -X POST http://localhost:5000/api/v1/users/register-user \
+
+  -H "Content-Type: application/json" \
+  
+  -d '{
+  
+    "username": "johnsmith",
+    "email": "john@example.com",
+    "password": "securePass123"
+    
+  }'
+➕ Login User
+
+curl -X POST http://localhost:5000/api/v1/users/login \
+
+  -H "Content-Type: application/json" \
+  
+  -d '{
+  
+    "usernameOrEmail": "johnsmith",
+    "password": "securePass123"
+    
+  }'
+
 ➕ Add School
 
-curl -X POST http://localhost:5000/api/school \
+curl -X POST http://localhost:3000/api/v1/school/addSchool \
 -H "Content-Type: application/json" \
 -d '{"schoolName":"Sunrise High","address":"123 Main St","longitude":77.5,"latitude":12.9}'
 
 📍 List Nearby Schools
 
-curl -X POST http://localhost:5000/api/school/list \
+curl -X POST http://localhost:3000/api/v1/school/listSchools \
 -H "Content-Type: application/json" \
 -d '{"longitude":77.5,"latitude":12.9}'
 
