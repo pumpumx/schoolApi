@@ -75,6 +75,7 @@ Get nearby schools by coordinates (auth required)
 
 📌 Example Requests
 ➕ Register User
+
 curl -X POST http://localhost:5000/api/v1/users/register-user \
 
   -H "Content-Type: application/json" \
@@ -86,6 +87,7 @@ curl -X POST http://localhost:5000/api/v1/users/register-user \
     "password": "securePass123"
     
   }'
+  
 ➕ Login User
 
 curl -X POST http://localhost:5000/api/v1/users/login \
@@ -102,14 +104,28 @@ curl -X POST http://localhost:5000/api/v1/users/login \
 ➕ Add School
 
 curl -X POST http://localhost:3000/api/v1/school/addSchool \
+
 -H "Content-Type: application/json" \
--d '{"schoolName":"Sunrise High","address":"123 Main St","longitude":77.5,"latitude":12.9}'
+
+-d '{
+
+	"schoolName":"Sunrise High","address":"123 Main St",
+	"longitude":77.5,"latitude":12.9
+
+}'
 
 📍 List Nearby Schools
 
 curl -X POST http://localhost:3000/api/v1/school/listSchools \
+
 -H "Content-Type: application/json" \
--d '{"longitude":77.5,"latitude":12.9}'
+
+-d '{
+
+	"longitude":77.5,
+ 	"latitude":12.9
+  
+  }'
 
 🧩 Utilities
 
