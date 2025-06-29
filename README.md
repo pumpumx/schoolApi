@@ -63,40 +63,40 @@ POST	/api/v1/school/listSchools	Get nearby schools by coordinates (auth required
 
 ⚠️ All routes (except register/login) require a valid JWT token in cookies.
 
-ProjectStructure 
-SCHOOLAPI/
-└── Backend/
-    ├── node_modules/
-    ├── public/
-    ├── src/
-    │   ├── controllers/
-    │   │   ├── school.controller.ts
-    │   │   └── user.controller.ts
-    │   ├── db/
-    │   │   └── connectDB.ts
-    │   ├── middlewares/
-    │   ├── models/
-    │   │   ├── school.model.ts
-    │   │   └── User.model.ts
-    │   ├── routes/
-    │   │   ├── school.route.ts
-    │   │   └── user.route.ts
-    │   ├── schemaTypes/
-    │   │   └── userSchemaType.ts
-    │   ├── types/
-    │   │   ├── env.type.ts
-    │   │   ├── loginUser.type.ts
-    │   │   ├── registerUser.type.ts
-    │   │   └── school.type.ts
-    │   ├── utils/
-    │   │   ├── app.ts
-    │   │   └── index.ts
-    ├── .env
-    ├── .env.sample
-    ├── .gitignore
-    ├── package.json
-    ├── pnpm-lock.yaml
-    └── tsconfig.json
+SCHOOLAPI/\n
+└── Backend/\n
+    ├── node_modules/\n
+    ├── public/\n
+    ├── src/\n
+    │   ├── controllers/\n
+    │   │   ├── school.controller.ts\n
+    │   │   └── user.controller.ts\n
+    │   ├── db/\n
+    │   │   └── connectDB.ts\n
+    │   ├── middlewares/\n
+    │   ├── models/\n
+    │   │   ├── school.model.ts\n
+    │   │   └── User.model.ts\n
+    │   ├── routes/\n
+    │   │   ├── school.route.ts\n
+    │   │   └── user.route.ts\n
+    │   ├── schemaTypes/\n
+    │   │   └── userSchemaType.ts\n
+    │   ├── types/\n
+    │   │   ├── env.type.ts\n
+    │   │   ├── loginUser.type.ts\n
+    │   │   ├── registerUser.type.ts\n
+    │   │   └── school.type.ts\n
+    │   ├── utils/\n
+    │   │   ├── app.ts\n
+    │   │   └── index.ts\n
+    ├── .env\n
+    ├── .env.sample\n
+    ├── .gitignore\n
+    ├── package.json\n
+    ├── pnpm-lock.yaml\n
+    └── tsconfig.json\n
+
 
 📌 Example Requests
 ➕ Add School
