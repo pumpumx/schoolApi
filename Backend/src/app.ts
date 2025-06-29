@@ -16,6 +16,11 @@ app.use(cookieParser())
 
  //Routes functionality will come here
 import userRouter from "./routes/user.route.ts";
+import schoolRouter from "./routes/school.route.ts";
+
 app.use('/api/v1/users',userRouter)
- 
- export {app}
+app.use('/api/v1/school',schoolRouter)
+
+
+
+export {app}
