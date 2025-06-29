@@ -74,7 +74,6 @@ web_modules/
 
 # Optional eslint cache
 .eslintcache
-pnpm-lock.yaml
 # Optional stylelint cache
 .stylelintcache
 
