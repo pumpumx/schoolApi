@@ -63,9 +63,6 @@ POST	/api/v1/school/listSchools	Get nearby schools by coordinates (auth required
 
 ⚠️ All routes (except register/login) require a valid JWT token in cookies.
 
-<pre> SCHOOLAPI/ └── Backend/ ├── node_modules/ # Project dependencies ├── public/ # Static files (if any) ├── src/ │ ├── controllers/ # Route controllers │ │ ├── school.controller.ts │ │ └── user.controller.ts │ ├── db/ # MongoDB connection │ │ └── connectDB.ts │ ├── middlewares/ # Custom middleware (auth, error, etc.) │ ├── models/ # Mongoose models │ │ ├── school.model.ts │ │ └── User.model.ts │ ├── routes/ # API route definitions │ │ ├── school.route.ts │ │ └── user.route.ts │ ├── schemaTypes/ # Mongoose schema types │ │ └── userSchemaType.ts │ ├── types/ # TypeScript type definitions │ │ ├── env.type.ts │ │ ├── loginUser.type.ts │ │ ├── registerUser.type.ts │ │ └── school.type.ts │ ├── utils/ # Utility functions & helpers │ │ ├── app.ts │ │ └── index.ts ├── .env # Environment config ├── .env.sample # Sample .env template ├── .gitignore # Git ignored files ├── package.json # Project metadata & scripts ├── pnpm-lock.yaml # Dependency lock file └── tsconfig.json # TypeScript configuration </pre>
-
-
 📌 Example Requests
 ➕ Add School
 bash
