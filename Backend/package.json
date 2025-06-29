@@ -9,7 +9,7 @@
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "dev": "nodemon -r dotenv  src/index.ts",
     "dev2": "node --trace-warnings src/index.ts",
-    "build":"tsc"
+    "build":"pnpm install"
   },
   "keywords": [],
   "author": "",
