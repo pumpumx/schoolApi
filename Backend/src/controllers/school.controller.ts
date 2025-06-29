@@ -61,6 +61,7 @@ const getSchoolData = AsyncHandler(async(req:customRequest , res:Response)=>{
                 },
                 distanceField:"distance",
                 $maxDistance: 50000,
+                spherical:true
             }
         }
     }).select("schoolName address")
