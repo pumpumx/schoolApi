@@ -27,44 +27,63 @@ Validation: Custom input validation
 🛠️ Setup Instructions
 
 1. Clone the Repo
-bash
-Copy
-Edit
+
 git clone https://github.com/pumpumx/schoolApi.git
+
 cd schoolApi
+
 2. Install Dependencies
-bash
-Copy
-Edit
+
 npm install
 3. Configure Environment Variables
+
 Create a .env file in the root directory:
-env
-Copy
-Edit
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-NODE_ENV=development
+
+ACCESS_TOKEN_KEY=""
+
+ACCESS_TOKEN_EXPIRY=""
+
+REFRESH_TOKEN_KEY=""
+
+REFRESH_TOKEN_EXPIRY=""
+
+MONGODB_URL=""
+
+APP_PORT=""
+
+PROD=""
 4. Run the Server
 
-bash
-Copy
-Edit
+
 npm run dev
+
 📘 API Endpoints
 🔐 Auth Routes
-Method	Endpoint	Description
-POST	/api/v1/users/register-user	Register a new user
-POST	/api/v1/users/login	Log in existing user
-DELETE	/api/v1/users/delete-user-account	Delete logged-in user account
+
+Method	Endpoint	
+POST	/api/v1/users/register-user
+
+Register a new user
+
+POST	/api/v1/users/login
+
+Log in existing user
+
+DELETE	/api/v1/users/delete-user-account
+
+Delete logged-in user account
 
 🏫 School Routes
 
 Method	Endpoint	Description
 
-POST	/api/v1/school/addSchool	Add a new school (auth required)
-POST	/api/v1/school/listSchools	Get nearby schools by coordinates (auth required)
+POST	/api/v1/school/addSchool	
+
+Add a new school (auth required)
+
+POST	/api/v1/school/listSchools	
+
+Get nearby schools by coordinates (auth required)
 
 ⚠️ All routes (except register/login) require a valid JWT token in cookies.
 
