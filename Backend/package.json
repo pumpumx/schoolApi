@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node --loader ts-node/esm src/index.ts",
+    "start": "node --loader ts-node/esm src/index.ts",
     "dev": "nodemon -r dotenv  src/index.ts",
     "dev2": "node --trace-warnings src/index.ts",
     "build":"pnpm install"
